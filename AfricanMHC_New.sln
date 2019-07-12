@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AfricanMHC_New", "AfricanMHC_New\AfricanMHC_New.csproj", "{7F88E760-CFA0-4D95-ACD2-3CB76C9E4AE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AMHC.DAL", "AMHC.DAL\AMHC.DAL.csproj", "{4D19F58F-5E60-4E71-B6A7-D96E9B74C6A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AMHC.BAL", "AMHC.BAL\AMHC.BAL.csproj", "{D73A8EC7-91DB-4860-862B-A90E6D4FF88F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7F88E760-CFA0-4D95-ACD2-3CB76C9E4AE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F88E760-CFA0-4D95-ACD2-3CB76C9E4AE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F88E760-CFA0-4D95-ACD2-3CB76C9E4AE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F88E760-CFA0-4D95-ACD2-3CB76C9E4AE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D19F58F-5E60-4E71-B6A7-D96E9B74C6A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D19F58F-5E60-4E71-B6A7-D96E9B74C6A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D19F58F-5E60-4E71-B6A7-D96E9B74C6A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D19F58F-5E60-4E71-B6A7-D96E9B74C6A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D73A8EC7-91DB-4860-862B-A90E6D4FF88F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D73A8EC7-91DB-4860-862B-A90E6D4FF88F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D73A8EC7-91DB-4860-862B-A90E6D4FF88F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D73A8EC7-91DB-4860-862B-A90E6D4FF88F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

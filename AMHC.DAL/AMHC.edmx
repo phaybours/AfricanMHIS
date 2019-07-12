@@ -1,0 +1,696 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AfricanMHCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'AfricanMHC.dbo.Appointment' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Appointment">
+          <Property Name="CurYear" Type="varchar" MaxLength="50" />
+          <Property Name="CurMonth" Type="varchar" MaxLength="50" />
+          <Property Name="WorkDays" Type="varchar" MaxLength="50" />
+          <Property Name="H08To09" Type="varchar" MaxLength="50" />
+          <Property Name="H09To10" Type="varchar" MaxLength="50" />
+          <Property Name="H10To11" Type="varchar" MaxLength="50" />
+          <Property Name="H11To12" Type="varchar" MaxLength="50" />
+          <Property Name="H12To01" Type="varchar" MaxLength="50" />
+          <Property Name="H01To02" Type="varchar" MaxLength="50" />
+          <Property Name="H02To03" Type="varchar" MaxLength="50" />
+          <Property Name="H03To04" Type="varchar" MaxLength="50" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AfricanMHC.dbo.AppUser' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AppUser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="100" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="Surname" Type="varchar" MaxLength="50" />
+          <Property Name="Middlename" Type="varchar" MaxLength="50" />
+          <Property Name="Firstname" Type="varchar" MaxLength="50" />
+          <Property Name="DateOfBirth" Type="varchar" MaxLength="50" />
+          <Property Name="Address" Type="varchar" MaxLength="50" />
+          <Property Name="PhoneNo" Type="varchar" MaxLength="50" />
+          <Property Name="Occupation" Type="varchar" MaxLength="50" />
+          <Property Name="Picture" Type="image" />
+          <Property Name="Usertype" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="AuditTrail">
+          <Key>
+            <PropertyRef Name="auditlogid" />
+          </Key>
+          <Property Name="auditlogid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="userid" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="eventdateutc" Type="datetime" Nullable="false" />
+          <Property Name="eventtype" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="tablename" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="recordid" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="columnname" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="originalvalue" Type="nvarchar(max)" />
+          <Property Name="newvalue" Type="nvarchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'AfricanMHC.dbo.C2' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="C2">
+          <Property Name="c1" Type="varchar" MaxLength="100" />
+          <Property Name="c2" Type="varchar" MaxLength="100" />
+          <Property Name="Count" Type="int" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AfricanMHC.dbo.ChatMessages' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ChatMessages">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="sender" />
+            <PropertyRef Name="recepient" />
+            <PropertyRef Name="senddate" />
+          </Key>
+          <Property Name="id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sender" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="recepient" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="message" Type="ntext" />
+          <Property Name="senddate" Type="datetime" Nullable="false" />
+          <Property Name="delivered" Type="bit" />
+          <Property Name="recieveddate" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'AfricanMHC.dbo.ContactUs' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="ContactUs">
+          <Property Name="sn" Type="int" />
+          <Property Name="MessageId" Type="nchar" MaxLength="10" />
+          <Property Name="Sender" Type="varchar" MaxLength="50" />
+          <Property Name="MessageTitle" Type="varchar" MaxLength="150" />
+          <Property Name="Message" Type="varchar(max)" />
+          <Property Name="Period" Type="datetime" />
+        </EntityType>-->
+        <EntityType Name="diseases">
+          <Key>
+            <PropertyRef Name="DiseaseID" />
+          </Key>
+          <Property Name="DiseaseID" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="150" />
+          <Property Name="Description" Type="varchar" MaxLength="350" />
+          <Property Name="Plants" Type="varchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AfricanMHC.dbo.diseasetransactions' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="diseasetransactions">
+          <Key>
+            <PropertyRef Name="sn" />
+          </Key>
+          <Property Name="sn" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="transID" Type="varchar" MaxLength="150" />
+          <Property Name="disease" Type="varchar" MaxLength="100" />
+          <Property Name="plant" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AfricanMHC.dbo.FAQ' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="FAQ">
+          <Key>
+            <PropertyRef Name="sn" />
+          </Key>
+          <Property Name="sn" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Topic" Type="varchar" MaxLength="50" />
+          <Property Name="Question" Type="varchar(max)" />
+          <Property Name="Answer" Type="varchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'AfricanMHC.dbo.herbs' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="herbs">
+          <Property Name="HerbID" Type="nchar" MaxLength="10" />
+          <Property Name="HerbName" Type="varchar" MaxLength="50" />
+          <Property Name="Preparation" Type="varchar(max)" />
+          <Property Name="Ailments" Type="varchar(max)" />
+        </EntityType>-->
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="logindate" Type="datetime" Nullable="false" />
+          <Property Name="sessionid" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="lastmessagetime" Type="datetime" />
+          <Property Name="useripaddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="loggedin" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'AfricanMHC.dbo.Messages' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Messages">
+          <Property Name="sn" Type="int" />
+          <Property Name="MessageId" Type="nchar" MaxLength="10" />
+          <Property Name="Sender" Type="varchar" MaxLength="50" />
+          <Property Name="MessageTitle" Type="varchar" MaxLength="150" />
+          <Property Name="Message" Type="varchar(max)" />
+          <Property Name="Period" Type="datetime" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AfricanMHC.dbo.MessagesHistory' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="MessagesHistory">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="sender" />
+            <PropertyRef Name="recepient" />
+            <PropertyRef Name="senddate" />
+          </Key>
+          <Property Name="id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sender" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="recepient" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="message" Type="ntext" />
+          <Property Name="senddate" Type="datetime" Nullable="false" />
+          <Property Name="delivered" Type="bit" />
+          <Property Name="recieveddate" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'AfricanMHC.dbo.OrderDetails' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="OrderDetails">
+          <Property Name="OrderId" Type="varchar" MaxLength="50" />
+          <Property Name="Customerq" Type="varchar" MaxLength="50" />
+          <Property Name="ItemNames" Type="varchar" MaxLength="50" />
+          <Property Name="Quatity" Type="varchar" MaxLength="50" />
+          <Property Name="UnitPrice" Type="varchar" MaxLength="50" />
+          <Property Name="SubTotal" Type="varchar" MaxLength="50" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'AfricanMHC.dbo.Orders' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Orders">
+          <Property Name="OrderID" Type="varchar" MaxLength="50" />
+          <Property Name="CustomerID" Type="varchar" MaxLength="50" />
+          <Property Name="TotalCost" Type="varchar" MaxLength="50" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AfricanMHC.dbo.plants' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="plants">
+          <Key>
+            <PropertyRef Name="PlantID" />
+          </Key>
+          <Property Name="PlantID" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Family" Type="varchar" MaxLength="250" />
+          <Property Name="Species" Type="varchar" MaxLength="250" />
+          <Property Name="Yoruba" Type="varchar" MaxLength="250" />
+          <Property Name="Hausa" Type="varchar" MaxLength="250" />
+          <Property Name="Igbo" Type="varchar" MaxLength="250" />
+          <Property Name="CommonName" Type="varchar" MaxLength="250" />
+          <Property Name="PartsUsed" Type="varchar" MaxLength="250" />
+          <Property Name="MedicinalUse" Type="varchar(max)" />
+          <Property Name="Picture" Type="varchar(max)" />
+          <Property Name="Price" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="planttransactions">
+          <Key>
+            <PropertyRef Name="sn" />
+          </Key>
+          <Property Name="sn" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="transID" Type="int" />
+          <Property Name="plant" Type="varchar" MaxLength="100" />
+          <Property Name="disease" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'AfricanMHC.dbo.R2' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="R2">
+          <Property Name="Id" Type="int" />
+          <Property Name="Item1" Type="varchar" MaxLength="100" />
+          <Property Name="Item2" Type="varchar" MaxLength="100" />
+        </EntityType>-->
+        <EntityType Name="RequestAppointment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="150" />
+          <Property Name="Name" Type="varchar" MaxLength="150" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="50" />
+          <Property Name="password" Type="nvarchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'AfricanMHC.dbo.userThreads' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="userThreads">
+          <Property Name="Username" Type="varchar" MaxLength="50" />
+          <Property Name="action" Type="varchar" MaxLength="50" />
+          <Property Name="actionTime" Type="time" Precision="7" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6035: The relationship 'FK_recepient' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK_recepient" />-->
+        <!--Errors Found During Generation:
+warning 6035: The relationship 'FK_sender' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK_sender" />-->
+        <!--Errors Found During Generation:
+warning 6035: The relationship 'FK_username' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK_username" />-->
+        <!--Errors Found During Generation:
+warning 6035: The relationship 'MH_FK_recepient' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="MH_FK_recepient" />-->
+        <!--Errors Found During Generation:
+warning 6035: The relationship 'MH_FK_sender' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="MH_FK_sender" />-->
+        <Function Name="AprioriDiseases" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="AprioriDiseases2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="AprioriPlants" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="AprioriPlants2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ReadMessage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="recepient" Type="nvarchar" Mode="In" />
+          <Parameter Name="message" Type="ntext" Mode="InOut" />
+          <Parameter Name="sender" Type="nvarchar" Mode="InOut" />
+        </Function>
+        <EntityContainer Name="AfricanMHCModelStoreContainer">
+          <EntitySet Name="AuditTrail" EntityType="Self.AuditTrail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="diseases" EntityType="Self.diseases" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="planttransactions" EntityType="Self.planttransactions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RequestAppointment" EntityType="Self.RequestAppointment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AppUser" EntityType="Self.AppUser" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AppUser].[ID] AS [ID], 
+    [AppUser].[Username] AS [Username], 
+    [AppUser].[Password] AS [Password], 
+    [AppUser].[Surname] AS [Surname], 
+    [AppUser].[Middlename] AS [Middlename], 
+    [AppUser].[Firstname] AS [Firstname], 
+    [AppUser].[DateOfBirth] AS [DateOfBirth], 
+    [AppUser].[Address] AS [Address], 
+    [AppUser].[PhoneNo] AS [PhoneNo], 
+    [AppUser].[Occupation] AS [Occupation], 
+    [AppUser].[Picture] AS [Picture], 
+    [AppUser].[Usertype] AS [Usertype]
+    FROM [dbo].[AppUser] AS [AppUser]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ChatMessages" EntityType="Self.ChatMessages" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ChatMessages].[id] AS [id], 
+    [ChatMessages].[sender] AS [sender], 
+    [ChatMessages].[recepient] AS [recepient], 
+    [ChatMessages].[message] AS [message], 
+    [ChatMessages].[senddate] AS [senddate], 
+    [ChatMessages].[delivered] AS [delivered], 
+    [ChatMessages].[recieveddate] AS [recieveddate]
+    FROM [dbo].[ChatMessages] AS [ChatMessages]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="diseasetransactions" EntityType="Self.diseasetransactions" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [diseasetransactions].[sn] AS [sn], 
+    [diseasetransactions].[transID] AS [transID], 
+    [diseasetransactions].[disease] AS [disease], 
+    [diseasetransactions].[plant] AS [plant]
+    FROM [dbo].[diseasetransactions] AS [diseasetransactions]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="FAQ" EntityType="Self.FAQ" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [FAQ].[sn] AS [sn], 
+    [FAQ].[Topic] AS [Topic], 
+    [FAQ].[Question] AS [Question], 
+    [FAQ].[Answer] AS [Answer]
+    FROM [dbo].[FAQ] AS [FAQ]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MessagesHistory" EntityType="Self.MessagesHistory" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [MessagesHistory].[id] AS [id], 
+    [MessagesHistory].[sender] AS [sender], 
+    [MessagesHistory].[recepient] AS [recepient], 
+    [MessagesHistory].[message] AS [message], 
+    [MessagesHistory].[senddate] AS [senddate], 
+    [MessagesHistory].[delivered] AS [delivered], 
+    [MessagesHistory].[recieveddate] AS [recieveddate]
+    FROM [dbo].[MessagesHistory] AS [MessagesHistory]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="plants" EntityType="Self.plants" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [plants].[PlantID] AS [PlantID], 
+    [plants].[Family] AS [Family], 
+    [plants].[Species] AS [Species], 
+    [plants].[Yoruba] AS [Yoruba], 
+    [plants].[Hausa] AS [Hausa], 
+    [plants].[Igbo] AS [Igbo], 
+    [plants].[CommonName] AS [CommonName], 
+    [plants].[PartsUsed] AS [PartsUsed], 
+    [plants].[MedicinalUse] AS [MedicinalUse], 
+    [plants].[Picture] AS [Picture], 
+    [plants].[Price] AS [Price]
+    FROM [dbo].[plants] AS [plants]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AfricanMHCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AuditTrail">
+          <Key>
+            <PropertyRef Name="auditlogid" />
+          </Key>
+          <Property Name="auditlogid" Type="Guid" Nullable="false" />
+          <Property Name="userid" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="eventdateutc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="eventtype" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="tablename" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="recordid" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="columnname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="originalvalue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="newvalue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="diseases">
+          <Key>
+            <PropertyRef Name="DiseaseID" />
+          </Key>
+          <Property Name="DiseaseID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="Plants" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="logindate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="sessionid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="lastmessagetime" Type="DateTime" Precision="3" />
+          <Property Name="useripaddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="loggedin" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="planttransactions">
+          <Key>
+            <PropertyRef Name="sn" />
+          </Key>
+          <Property Name="sn" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="transID" Type="Int32" />
+          <Property Name="plant" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="disease" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="RequestAppointment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AppUser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Middlename" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateOfBirth" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Occupation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Usertype" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ChatMessages">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="sender" />
+            <PropertyRef Name="recepient" />
+            <PropertyRef Name="senddate" />
+          </Key>
+          <Property Name="id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="recepient" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="senddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="delivered" Type="Boolean" />
+          <Property Name="recieveddate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="diseasetransactions">
+          <Key>
+            <PropertyRef Name="sn" />
+          </Key>
+          <Property Name="sn" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="transID" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="disease" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="plant" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="FAQ">
+          <Key>
+            <PropertyRef Name="sn" />
+          </Key>
+          <Property Name="sn" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Topic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Question" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Answer" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="MessagesHistory">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="sender" />
+            <PropertyRef Name="recepient" />
+            <PropertyRef Name="senddate" />
+          </Key>
+          <Property Name="id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="recepient" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="senddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="delivered" Type="Boolean" />
+          <Property Name="recieveddate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="plants">
+          <Key>
+            <PropertyRef Name="PlantID" />
+          </Key>
+          <Property Name="PlantID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Family" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Species" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Yoruba" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Hausa" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Igbo" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="CommonName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="PartsUsed" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="MedicinalUse" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Picture" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="AfricanMHCEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AuditTrail" EntityType="Self.AuditTrail" />
+          <EntitySet Name="diseases" EntityType="Self.diseases" />
+          <EntitySet Name="Login" EntityType="Self.Login" />
+          <EntitySet Name="planttransactions" EntityType="Self.planttransactions" />
+          <EntitySet Name="RequestAppointment" EntityType="Self.RequestAppointment" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <EntitySet Name="AppUser" EntityType="Self.AppUser" />
+          <EntitySet Name="ChatMessages" EntityType="Self.ChatMessages" />
+          <EntitySet Name="diseasetransactions" EntityType="Self.diseasetransactions" />
+          <EntitySet Name="FAQ" EntityType="Self.FAQ" />
+          <EntitySet Name="MessagesHistory" EntityType="Self.MessagesHistory" />
+          <EntitySet Name="plants" EntityType="Self.plants" />
+          <FunctionImport Name="AprioriDiseases" />
+          <FunctionImport Name="AprioriDiseases2" />
+          <FunctionImport Name="AprioriPlants" />
+          <FunctionImport Name="AprioriPlants2" />
+          <FunctionImport Name="ReadMessage">
+            <Parameter Name="recepient" Mode="In" Type="String" />
+            <Parameter Name="message" Mode="InOut" Type="String" />
+            <Parameter Name="sender" Mode="InOut" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AfricanMHCModelStoreContainer" CdmEntityContainer="AfricanMHCEntities">
+          <EntitySetMapping Name="AuditTrail">
+            <EntityTypeMapping TypeName="AfricanMHCModel.AuditTrail">
+              <MappingFragment StoreEntitySet="AuditTrail">
+                <ScalarProperty Name="auditlogid" ColumnName="auditlogid" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="eventdateutc" ColumnName="eventdateutc" />
+                <ScalarProperty Name="eventtype" ColumnName="eventtype" />
+                <ScalarProperty Name="tablename" ColumnName="tablename" />
+                <ScalarProperty Name="recordid" ColumnName="recordid" />
+                <ScalarProperty Name="columnname" ColumnName="columnname" />
+                <ScalarProperty Name="originalvalue" ColumnName="originalvalue" />
+                <ScalarProperty Name="newvalue" ColumnName="newvalue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="diseases">
+            <EntityTypeMapping TypeName="AfricanMHCModel.diseases">
+              <MappingFragment StoreEntitySet="diseases">
+                <ScalarProperty Name="DiseaseID" ColumnName="DiseaseID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Plants" ColumnName="Plants" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Login">
+            <EntityTypeMapping TypeName="AfricanMHCModel.Login">
+              <MappingFragment StoreEntitySet="Login">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="logindate" ColumnName="logindate" />
+                <ScalarProperty Name="sessionid" ColumnName="sessionid" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="lastmessagetime" ColumnName="lastmessagetime" />
+                <ScalarProperty Name="useripaddress" ColumnName="useripaddress" />
+                <ScalarProperty Name="loggedin" ColumnName="loggedin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="planttransactions">
+            <EntityTypeMapping TypeName="AfricanMHCModel.planttransactions">
+              <MappingFragment StoreEntitySet="planttransactions">
+                <ScalarProperty Name="sn" ColumnName="sn" />
+                <ScalarProperty Name="transID" ColumnName="transID" />
+                <ScalarProperty Name="plant" ColumnName="plant" />
+                <ScalarProperty Name="disease" ColumnName="disease" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RequestAppointment">
+            <EntityTypeMapping TypeName="AfricanMHCModel.RequestAppointment">
+              <MappingFragment StoreEntitySet="RequestAppointment">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="AfricanMHCModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AppUser">
+            <EntityTypeMapping TypeName="AfricanMHCModel.AppUser">
+              <MappingFragment StoreEntitySet="AppUser">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Middlename" ColumnName="Middlename" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="Occupation" ColumnName="Occupation" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="Usertype" ColumnName="Usertype" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChatMessages">
+            <EntityTypeMapping TypeName="AfricanMHCModel.ChatMessages">
+              <MappingFragment StoreEntitySet="ChatMessages">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="sender" ColumnName="sender" />
+                <ScalarProperty Name="recepient" ColumnName="recepient" />
+                <ScalarProperty Name="message" ColumnName="message" />
+                <ScalarProperty Name="senddate" ColumnName="senddate" />
+                <ScalarProperty Name="delivered" ColumnName="delivered" />
+                <ScalarProperty Name="recieveddate" ColumnName="recieveddate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="diseasetransactions">
+            <EntityTypeMapping TypeName="AfricanMHCModel.diseasetransactions">
+              <MappingFragment StoreEntitySet="diseasetransactions">
+                <ScalarProperty Name="sn" ColumnName="sn" />
+                <ScalarProperty Name="transID" ColumnName="transID" />
+                <ScalarProperty Name="disease" ColumnName="disease" />
+                <ScalarProperty Name="plant" ColumnName="plant" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FAQ">
+            <EntityTypeMapping TypeName="AfricanMHCModel.FAQ">
+              <MappingFragment StoreEntitySet="FAQ">
+                <ScalarProperty Name="sn" ColumnName="sn" />
+                <ScalarProperty Name="Topic" ColumnName="Topic" />
+                <ScalarProperty Name="Question" ColumnName="Question" />
+                <ScalarProperty Name="Answer" ColumnName="Answer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MessagesHistory">
+            <EntityTypeMapping TypeName="AfricanMHCModel.MessagesHistory">
+              <MappingFragment StoreEntitySet="MessagesHistory">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="sender" ColumnName="sender" />
+                <ScalarProperty Name="recepient" ColumnName="recepient" />
+                <ScalarProperty Name="message" ColumnName="message" />
+                <ScalarProperty Name="senddate" ColumnName="senddate" />
+                <ScalarProperty Name="delivered" ColumnName="delivered" />
+                <ScalarProperty Name="recieveddate" ColumnName="recieveddate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="plants">
+            <EntityTypeMapping TypeName="AfricanMHCModel.plants">
+              <MappingFragment StoreEntitySet="plants">
+                <ScalarProperty Name="PlantID" ColumnName="PlantID" />
+                <ScalarProperty Name="Family" ColumnName="Family" />
+                <ScalarProperty Name="Species" ColumnName="Species" />
+                <ScalarProperty Name="Yoruba" ColumnName="Yoruba" />
+                <ScalarProperty Name="Hausa" ColumnName="Hausa" />
+                <ScalarProperty Name="Igbo" ColumnName="Igbo" />
+                <ScalarProperty Name="CommonName" ColumnName="CommonName" />
+                <ScalarProperty Name="PartsUsed" ColumnName="PartsUsed" />
+                <ScalarProperty Name="MedicinalUse" ColumnName="MedicinalUse" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="AprioriDiseases" FunctionName="AfricanMHCModel.Store.AprioriDiseases" />
+          <FunctionImportMapping FunctionImportName="AprioriDiseases2" FunctionName="AfricanMHCModel.Store.AprioriDiseases2" />
+          <FunctionImportMapping FunctionImportName="AprioriPlants" FunctionName="AfricanMHCModel.Store.AprioriPlants" />
+          <FunctionImportMapping FunctionImportName="AprioriPlants2" FunctionName="AfricanMHCModel.Store.AprioriPlants2" />
+          <FunctionImportMapping FunctionImportName="ReadMessage" FunctionName="AfricanMHCModel.Store.ReadMessage" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
